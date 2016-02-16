@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>dokieli</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link href="media/css/basic.css" media="all" rel="stylesheet" title="Basic" />
+        <link href="media/css/do.css" media="all" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+        <script src="scripts/simplerdf.js"></script>
+        <script src="scripts/html.sortable.min.js"></script>
+        <script src="scripts/do.js"></script>
+    </head>
+
+    <body about="" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ v: http://www.w3.org/2006/vcard/ns# pimspace: http://www.w3.org/ns/pim/space# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# schema: https://schema.org/ sioc: http://rdfs.org/sioc/ns# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# cal: http://www.w3.org/2002/12/cal/ical# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# bibo: http://purl.org/ontology/bibo/ dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: http://www.w3.org/ns/activitystreams# sterms: http://www.w3.org/ns/solid/terms#" typeof="sioc:Post prov:Entity">
+        <main>
+            <article>
+                <h1 property="schema:name">Profile Generator</h1>
+                <div>
+                    <form id="generate-profile">
+                        <fieldset>
+                            <legend>Generate Profile</legend>
+                            <!-- <p class="note"><span class="required">*</span> marked fields are required.</p> -->
+
+                            <ul class="form-data">
+                                <li>
+                                    <label for="givenName">Given name</label>
+                                    <input type="text" name="givenName" id="givenName" size="24" maxlength="50" value="" placeholder="Thomas"/>
+                                </li>
+                                <li>
+                                    <label for="familyName">Family name</label>
+                                    <input type="text" name="familyName" id="familyName" size="24" maxlength="50" value="" placeholder="Anderson"/>
+                                </li>
+                                <li>
+                                    <label for="uri">WebID</label>
+                                    <input type="text" name="uri" id="uri" size="24" maxlength="100" value="" placeholder="http://example.og/#i"/>
+                                </li>
+                                <li>
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" id="email" size="24" maxlength="100" value="" placeholder="foo@example.org"/>
+                                </li>
+                                <li>
+                                    <label for="url">Homepage</label>
+                                    <input type="text" name="url" id="url" size="24" maxlength="100" value="" placeholder="http://example.org/"/>
+                                </li>
+                                <li>
+                                    <label for="photo">Photo</label>
+                                    <input type="text" name="photo" id="photo" size="24" maxlength="100" value="" placeholder="http://example.org/photos/profile.jpg"/>
+                                </li>
+                                <li>
+                                    <label for="seeAlso">See also</label>
+                                    <input type="text" name="seeAlso" id="seeAlso" size="24" maxlength="100" value="" placeholder="http://example.org/cv"/>
+                                </li>
+                                <li>
+                                    <label for="storage">Storage</label>
+                                    <input type="text" name="storage" id="storage" size="24" maxlength="100" value="" placeholder="http://example.org/storage"/>
+                                </li>
+
+                                <li>
+                                    <details >
+                                        <summary>Add Affiliation</summary>
+                                        <fieldset id="affiliation">
+                                        <!--
+                                        fieldset ul ul,
+                                        fieldset ol ol { margin-left: 0; }
+                                        -->
+                                            <legend>Affiliation</legend>
+                                            <ul class="form-data">
+                                                <li>
+                                                    <label for="affiliation-name">Name</label>
+                                                    <input type="text" name="affiliation-name" id="url" size="24" maxlength="100" value="" placeholder="Acme Inc."/>
+                                                </li>
+                                                <li>
+                                                    <label for="affiliation-address">Street address</label>
+                                                    <input type="text" name="affiliation-address" id="url" size="24" maxlength="100" value="" placeholder="123 Mochi Street"/>
+                                                </li>
+                                                <li>
+                                                    <label for="affiliation-addressLocality">Locality</label>
+                                                    <input type="text" name="affiliation-addressLocality" id="url" size="24" maxlength="100" value="" placeholder="Ebisu"/>
+                                                </li>
+                                                <li>
+                                                    <label for="affiliation-addressRegion">Region</label>
+                                                    <input type="text" name="affiliation-addressRegion" id="url" size="24" maxlength="100" value="" placeholder="Tokyo"/>
+                                                </li>
+                                                <li>
+                                                    <label for="affiliation-addressCountry">Country</label>
+                                                    <input type="text" name="affiliation-addressCountry" id="url" size="24" maxlength="100" value="" placeholder="Japan"/>
+                                                </li>
+                                                <li>
+                                                    <label for="affiliation-url">Homepage</label>
+                                                    <input type="text" name="affiliation-url" id="url" size="24" maxlength="100" value="" placeholder="http://example.com/"/>
+                                                </li>
+                                            </ul>
+                                        </fieldset>
+                                    </details>
+                                </li>
+
+            <!--
+            TODO:
+            * Accounts
+            * Interests
+            -->
+
+            <!--
+                            <li>
+                                <label for="storage">Storage</label>
+                                <input type="text" name="storage" id="storage" size="24" maxlength="100" value="" placeholder="http://example.org/preferencesFile"/>
+                            </li>
+            -->
+
+            <!--                     <li>
+                                <label for="comment">Comment <span class="required">*</span></label>
+                                <textarea name="comment" rows="5" cols="24" id="comment"></textarea>
+                            </li>
+            -->
+                            </ul>
+                            <input type="submit" name="generate-profile-submit" value="Generate" id="generate-profile-submit"/>
+                        </fieldset>
+                    </form>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>
